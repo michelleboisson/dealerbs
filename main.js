@@ -125,7 +125,7 @@ class App {
     };
 
     if (speech.includes('weather stripping')){
-      console.log("BS!");
+      //console.log("BS!");
       this.bs-sound.play();
     };
 
