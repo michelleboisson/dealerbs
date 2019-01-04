@@ -2,7 +2,8 @@ body {
   background: #1e2440;
   color: #f2efe2;
   font-size: 16px;
-  font-family: 'Helvetica';
+  font-family: 'Kaushan Script', cursive;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 .container {
@@ -79,6 +80,8 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: url('./blek pentha.png') 96% / 15% no-repeat #eee;
+  font-family: 'Kaushan Script', cursive;
+  font-family: 'Shadows Into Light', cursive;
   outline: none;
   cursor: pointer;
   position: absolute;
@@ -89,3 +92,4 @@ select {
 select:focus, select:active {
   outline: none;
 }
+

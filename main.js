@@ -7,7 +7,6 @@ class App {
     this.paragraph = document.createElement('p');
     this.container = document.querySelector('.text-box');
     this.sound = document.querySelector('.sound');
-    this.sound = document.querySelector('.bs-sound');
     this.listening = false;
     this.question = false;
     this.appendParagraph();
@@ -17,7 +16,7 @@ class App {
     this.watchRecognition();
     this.cachedWeather = false;
   }
-
+  
   appendParagraph() {
     this.container.appendChild(this.paragraph);
   }
@@ -26,18 +25,18 @@ class App {
     if(typeof speechSynthesis === 'undefined') {
       return;
     }
-
+    
     this.voices = speechSynthesis.getVoices();
     let i;
-
+  
     for(i = 0; i < this.voices.length ; i++) {
       let option = document.createElement('option');
       option.textContent = this.voices[i].name + ' (' + this.voices[i].lang + ')';
-
+      
       if(this.voices[i].default) {
         option.textContent += ' -- DEFAULT';
       }
-
+  
       option.setAttribute('data-lang', this.voices[i].lang);
       option.setAttribute('data-name', this.voices[i].name);
       document.getElementById("voiceSelect").appendChild(option);
@@ -67,7 +66,7 @@ class App {
       this.listening = true;
       console.log('Speech recognition service has started');
     };
-
+    
     this.recognition.onend = function() {
       console.log('Speech recognition service disconnected');
     };
@@ -81,9 +80,9 @@ class App {
       .map(result => result[0])
       .map(result => result.transcript)
       .join('');
-
+      
       this.paragraph.textContent = speechToText;
-
+  
       if (event.results[0].isFinal) {
         this.container.scrollTo(0, this.container.scrollHeight);
         this.paragraph = document.createElement('p');
@@ -122,11 +121,6 @@ class App {
 
     if (speech.includes('what is the weather in')) {
       this.getWeather(speech);
-    };
-
-    if (speech.includes('weather stripping')){
-      //console.log("BS!");
-      this.bs-sound.play();
     };
 
     if (speech.includes('open a url')) {
@@ -215,3 +209,4 @@ if ('serviceWorker' in navigator) {
            .register('./service-worker.js')
            .then(function() { console.log('Service Worker Registered'); });
 }
+
