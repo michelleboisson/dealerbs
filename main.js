@@ -124,7 +124,7 @@ class App {
       this.getWeather(speech);
     };
 
-    if (speech.includes('weather stripping') || speech.includes('weatherstripping')){
+    if (speech.includes('weather stripping')){
       console.log("BS!");
       this.bs-sound.play();
     };
